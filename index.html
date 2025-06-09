@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سارة للأرقام المميزة - أفضل الأرقام المميزة لجميع الشبكات</title>
+    <meta name="description" content="سارة للأرقام المميزة - أفضل الأرقام المميزة لجميع الشبكات (زين، MTN، سوداني) - للطلب والاستفسار: 0912398256">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(218,165,32,0.1)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="sim" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="%23f4f4f4"/><rect x="2" y="2" width="16" height="16" rx="2" fill="%23007bff" opacity="0.1"/><rect x="4" y="4" width="12" height="8" rx="1" fill="%23ffd700" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23sim)"/></svg>');
+            background-size: 100px 100px, cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* تأثيرات الخلفية المتحركة */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .floating-element:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .floating-element:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+        .floating-element:nth-child(5) { top: 50%; left: 5%; animation-delay: 4s; }
+        .floating-element:nth-child(6) { top: 70%; right: 25%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* الحاوي الرئيسي */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* الهيدر مع الشعار */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FFD700);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(255,215,0,0.4);
+            animation: logoFloat 4s ease-in-out infinite;
+            border: 5px solid #FFD700;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FFD700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGradient 3s ease-in-out infinite, titlePulse 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes titleGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            animation: subtitleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtitleGlow {
+            from { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+            to { text-shadow: 1px 1px 10px rgba(255,215,0,0.5); }
+        }
+
+        .welcome-message {
+            font-size: 1.4rem;
+            color: #D2691E;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,248,220,0.9));
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 8px 16px rgba(255,215,0,0.2);
+            animation: welcomePulse 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes welcomePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 16px rgba(255,215,0,0.2); }
+            50% { transform: scale(1.02); box-shadow: 0 12px 24px rgba(255,215,0,0.4); }
+        }
+
+        /* أدوات البحث والتصفية */
+        .search-filter-container {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 2px solid #FFD700;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.9);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #FFA500;
+            box-shadow: 0 0 15px rgba(255,165,0,0.3);
+            transform: scale(1.02);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,165,0,0.3);
+            animation: buttonFloat 3s ease-in-out infinite;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255,165,0,0.5);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #FF6347, #FF4500);
+            animation: activeButton 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        @keyframes activeButton {
+            from { box-shadow: 0 5px 15px rgba(255,99,71,0.3); }
+            to { box-shadow: 0 8px 25px rgba(255,99,71,0.6); }
+        }
+
+        /* شبكة الأرقام */
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .number-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+
+        .number-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347, #FFD700);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .number-card:hover::before {
+            opacity: 1;
+        }
+
+        .number-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.3);
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .number-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2C5530;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            animation: numberGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            from { color: #2C5530; }
+            to { color: #228B22; }
+        }
+
+        .network-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .network-zain { background: linear-gradient(135deg, #007bff, #0056b3); color: white; }
+        .network-sudani { background: linear-gradient(135deg, #28a745, #1e7e34); color: white; }
+        .network-mtn { background: linear-gradient(135deg, #ffc107, #e0a800); color: #333; }
+
+        .category-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: categoryShine 3s ease-in-out infinite;
+        }
+
+        @keyframes categoryShine {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .category-vip { background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; }
+        .category-golden { background: linear-gradient(135deg, #DAA520, #B8860B); color: white; }
+        .category-premium { background: linear-gradient(135deg, #CD853F, #A0522D); color: white; }
+
+        .price-section {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,165,0,0.1));
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #FFD700;
+            animation: priceGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes priceGlow {
+            from { box-shadow: 0 0 10px rgba(255,215,0,0.3); }
+            to { box-shadow: 0 0 20px rgba(255,215,0,0.6); }
+        }
+
+        .price-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            animation: crownRotate 4s linear infinite;
+        }
+
+        @keyframes crownRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .price-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #B8860B;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+        }
+
+        /* الفوتر */
+        .footer {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 2px solid #FFD700;
+            animation: footerGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes footerGlow {
+            from { box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+            to { box-shadow: 0 20px 40px rgba(255,215,0,0.2); }
+        }
+
+        .footer h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            animation: footerTitleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes footerTitleGlow {
+            from { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+            to { text-shadow: 1px 1px 10px rgba(255,215,0,0.5); }
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            color: #D2691E;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .subtitle { font-size: 1.4rem; }
+            .welcome-message { font-size: 1.2rem; }
+            .numbers-grid { grid-template-columns: 1fr; }
+            .filter-buttons { justify-content: center; }
+            .container { padding: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .main-title { font-size: 2rem; }
+            .subtitle { font-size: 1.2rem; }
+            .welcome-message { font-size: 1rem; padding: 12px 20px; }
+            .number-display { font-size: 1.5rem; }
+        }
+
+        /* تأثيرات إضافية للجاذبية */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .stats-container {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,165,0,0.1));
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 2px solid #FFD700;
+            animation: statsGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes statsGlow {
+            from { box-shadow: 0 0 15px rgba(255,215,0,0.3); }
+            to { box-shadow: 0 0 25px rgba(255,215,0,0.6); }
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #B8860B;
+            animation: statsCount 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes statsCount {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .stats-label {
+            font-size: 1.2rem;
+            color: #8B4513;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- تأثيرات الخلفية المتحركة -->
+    <div class="background-animation">
+        <div class="floating-element">📱</div>
+        <div class="floating-element">💎</div>
+        <div class="floating-element">⭐</div>
+        <div class="floating-element">👑</div>
+        <div class="floating-element">💫</div>
+        <div class="floating-element">🌟</div>
+    </div>
+
+    <div class="container">
+        <!-- الهيدر مع الشعار -->
+        <header class="header">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iOTAiIGZpbGw9InVybCgjZ3JhZGllbnQwKSIvPgo8dGV4dCB4PSIxMDAiIHk9IjgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjRkZENzAwIj5TQVJBPC90ZXh0Pgo8dGV4dCB4PSIxMDAiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSIjOEI0NTEzIj7ZhNmE2KPYsdmC2KfZhSDYp9mE2YXZhdmK2LLYqTwvdGV4dD4KPHN0YXJzIHg9IjEwMCIgeT0iNjAiIGZpbGw9IiNGRkQ3MDAiPuKtkOKtkOKtkDwvc3RhcnM+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50MCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgo8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNGRkY4REMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRjVGNUY1Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+" alt="شعار سارة للأرقام المميزة">
+            </div>
+            
+            <h1 class="main-title">سارة للأرقام المميزة</h1>
+            <p class="subtitle">🏆 المفتاح المميز للأرقام المميزة 09123 VIP 🏆</p>
+            
+            <div class="welcome-message">
+                مرحباً بكم سعدنا برؤيتكم 🌹🌹 ونتمنى دوام وصالكم 🥰🥰
+            </div>
+        </header>
+
+        <!-- إحصائيات الأرقام -->
+        <div class="stats-container">
+            <div class="stats-number" id="totalNumbers">344</div>
+            <div class="stats-label">رقم مميز لجميع الشبكات</div>
+        </div>
+
+        <!-- أدوات البحث والتصفية -->
+        <div class="search-filter-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 ابحث عن رقم معين...">
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterNumbers('all')">جميع الأرقام</button>
+                <button class="filter-btn" onclick="filterNumbers('vip')">VIP</button>
+                <button class="filter-btn" onclick="filterNumbers('golden')">ذهبي</button>
+                <button class="filter-btn" onclick="filterNumbers('premium')">مميز</button>
+                <button class="filter-btn" onclick="filterNumbers('zain')">زين</button>
+                <button class="filter-btn" onclick="filterNumbers('sudani')">سوداني</button>
+                <button class="filter-btn" onclick="filterNumbers('mtn')">MTN</button>
+            </div>
+        </div>
+
+        <!-- شبكة الأرقام -->
+        <div class="numbers-grid" id="numbersGrid">
+            <!-- سيتم إضافة الأرقام هنا بواسطة JavaScript -->
+        </div>
+
+        <!-- الفوتر -->
+        <footer class="footer">
+            <h3>🎖️ أفضل الأرقام المميزة لجميع الشبكات 🎖️</h3>
+            <div class="contact-info">
+                📞 للطلب والاستفسار والتواصل عبر الواتساب: 0912398256
+            </div>
+            <p style="color: #8B4513; margin-top: 15px;">
+                ⭐ نوفر أفضل الأرقام المميزة لشبكات زين وسوداني وMTN ⭐
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // تصنيف الشبكة حسب بداية الرقم
+        function getNetworkFromNumber(number) {
+            const cleanNumber = number.replace(/[^0-9]/g, '');
+            if (cleanNumber.startsWith('091') || cleanNumber.startsWith('096') || cleanNumber.startsWith('0900')) {
+                return 'زين';
+            } else if (cleanNumber.startsWith('01')) {
+                return 'سوداني';
+            } else if (cleanNumber.startsWith('099') || cleanNumber.startsWith('092') || cleanNumber.startsWith('093')) {
+                return 'MTN';
+            }
+            return 'غير محدد';
+        }
+
+        // تصنيف فئة الرقم
+        function getCategoryFromNumber(number) {
+            const cleanNumber = number.replace(/[^0-9]/g, '');
+            
+            // أرقام VIP (تحتوي على تكرارات كثيرة أو أنماط خاصة)
+            if (cleanNumber.includes('0000') || cleanNumber.includes('1111') || 
+                cleanNumber.includes('2222') || cleanNumber.includes('3333') || 
+                cleanNumber.includes('4444') || cleanNumber.includes('5555') || 
+                cleanNumber.includes('6666') || cleanNumber.includes('7777') || 
+                cleanNumber.includes('8888') || cleanNumber.includes('9999') ||
+                cleanNumber.includes('123456') || cleanNumber.includes('654321')) {
+                return 'vip';
+            }
+            
+            // أرقام ذهبية (تحتوي على تكرارات متوسطة)
+            if (cleanNumber.includes('000') || cleanNumber.includes('111') || 
+                cleanNumber.includes('222') || cleanNumber.includes('333') || 
+                cleanNumber.includes('444') || cleanNumber.includes('555') || 
+                cleanNumber.includes('666') || cleanNumber.includes('777') || 
+                cleanNumber.includes('888') || cleanNumber.includes('999')) {
+                return 'golden';
+            }
+            
+            // باقي الأرقام مميزة
+            return 'premium';
+        }
+
+        // قائمة الأرقام المميزة
+        const premiumNumbers = [
+            // الأرقام الأصلية
+            { number: '0912300570', category: 'vip' },
+            { number: '0912307779', category: 'golden' },
+            { number: '0912308854', category: 'premium' },
+            { number: '0912399936', category: 'golden' },
+            { number: '0912372105', category: 'premium' },
+            { number: '0912310835', category: 'premium' },
+            { number: '0912310857', category: 'premium' },
+            { number: '0912311105', category: 'golden' },
+            { number: '0912314978', category: 'premium' },
+            { number: '0912316729', category: 'premium' },
+            { number: '0123001629', category: 'vip' },
+            { number: '0912324138', category: 'premium' },
+            { number: '0912335961', category: 'premium' },
+            { number: '0912336087', category: 'premium' },
+            { number: '0912331905', category: 'premium' },
+            { number: '0912348698', category: 'premium' },
+            { number: '0912343581', category: 'premium' },
+            { number: '0912350298', category: 'premium' },
+            { number: '0912351434', category: 'premium' },
+            { number: '0912354082', category: 'premium' },
+            { number: '0912356149', category: 'premium' },
+            { number: '0912356911', category: 'premium' },
+            { number: '0912356938', category: 'premium' },
+            { number: '0912376048', category: 'premium' },
+            { number: '0912360849', category: 'premium' },
+            { number: '0912360574', category: 'premium' },
+            { number: '0912365484', category: 'premium' },
+            { number: '0912367947', category: 'premium' },
+            { number: '0912368717', category: 'premium' },
+            { number: '0912369072', category: 'premium' },
+            { number: '0912371946', category: 'premium' },
+            { number: '0912372108', category: 'premium' },
+            { number: '0912375826', category: 'premium' },
+            { number: '0912379087', category: 'premium' },
+            { number: '0912382708', category: 'premium' },
+            { number: '0912385446', category: 'premium' },
+            { number: '0912388598', category: 'premium' },
+            { number: '0912388769', category: 'premium' },
+            { number: '0912391037', category: 'premium' },
+            { number: '0912391058', category: 'premium' },
+            { number: '0912339724', category: 'premium' },
+            { number: '0912397305', category: 'premium' },
+            { number: '0912398617', category: 'premium' },
+            { number: '0912398858', category: 'premium' },
+            { number: '0912398753', category: 'premium' },
+            { number: '0912397742', category: 'premium' },
+            { number: '0912399306', category: 'premium' },
+            { number: '0900002282', category: 'golden' },
+            { number: '0900002284', category: 'golden' },
+            { number: '0900002285', category: 'golden' },
+            { number: '0900002286', category: 'golden' },
+            { number: '0912561385', category: 'premium' },
+            { number: '0912561396', category: 'premium' },
+            { number: '0912575819', category: 'premium' },
+            { number: '0912587260', category: 'premium' },
+            { number: '0912587506', category: 'premium' },
+            { number: '0912587624', category: 'premium' },
+            { number: '0912578101', category: 'premium' },
+            { number: '0912589963', category: 'premium' },
+            { number: '0912592279', category: 'premium' },
+            { number: '0912512582', category: 'premium' },
+            { number: '0912512688', category: 'premium' },
+            { number: '0912512434', category: 'premium' },
+            { number: '0912512453', category: 'premium' },
+            { number: '0912512469', category: 'premium' },
+            { number: '0912512471', category: 'premium' },
+            { number: '0912512478', category: 'premium' },
+            { number: '0912601157', category: 'premium' },
+            { number: '0912601364', category: 'premium' },
+            { number: '0912605092', category: 'premium' },
+            { number: '0912611939', category: 'premium' },
+            { number: '0912622348', category: 'premium' },
+            { number: '0912641467', category: 'premium' },
+            { number: '0912642101', category: 'premium' },
+            { number: '0912666490', category: 'golden' },
+            { number: '0912696891', category: 'premium' },
+            { number: '0912669182', category: 'premium' },
+            { number: '0912671127', category: 'premium' },
+            { number: '0912684452', category: 'premium' },
+            { number: '0912694124', category: 'premium' },
+            { number: '0912694350', category: 'premium' },
+            { number: '0964000004', category: 'vip' },
+            { number: '0968000007', category: 'vip' },
+            { number: '0963000005', category: 'vip' },
+            { number: '0967000008', category: 'vip' },
+            { number: '0960000064', category: 'vip' },
+            { number: '0123009230', category: 'premium' },
+            { number: '0123001496', category: 'premium' },
+            { number: '0123001453', category: 'premium' },
+            { number: '0123001564', category: 'premium' },
+            { number: '0123001642', category: 'premium' },
+            { number: '0123001569', category: 'premium' },
+            { number: '0123002048', category: 'premium' },
+            { number: '0123002372', category: 'premium' },
+            { number: '0123002787', category: 'premium' },
+            { number: '0123002809', category: 'premium' },
+            { number: '0123002831', category: 'premium' },
+            { number: '0123002806', category: 'premium' },
+            { number: '0123002994', category: 'premium' },
+            { number: '0123003276', category: 'premium' },
+            { number: '0123004218', category: 'premium' },
+            { number: '0123004289', category: 'premium' },
+            { number: '0123004269', category: 'premium' },
+            { number: '0123004716', category: 'premium' },
+            { number: '0123004756', category: 'premium' },
+            { number: '0123004894', category: 'premium' },
+            { number: '0123004096', category: 'premium' },
+            { number: '0123001639', category: 'premium' },
+            { number: '0123001671', category: 'premium' },
+            { number: '0123001624', category: 'premium' },
+            { number: '0123001643', category: 'premium' },
+            { number: '0123001653', category: 'premium' },
+            { number: '0123001781', category: 'premium' },
+            { number: '0123001765', category: 'premium' },
+            { number: '0123001734', category: 'premium' },
+            { number: '0123001758', category: 'premium' },
+            { number: '0123001769', category: 'premium' },
+            { number: '0123001743', category: 'premium' },
+            { number: '0123001762', category: 'premium' },
+            { number: '0123001982', category: 'premium' },
+            { number: '0123001963', category: 'premium' },
+            { number: '0123005108', category: 'premium' },
+            { number: '0123006832', category: 'premium' },
+            { number: '0123006812', category: 'premium' },
+            { number: '0123007045', category: 'premium' },
+            { number: '0123007580', category: 'premium' },
+            { number: '0123005941', category: 'premium' },
+            { number: '0123005846', category: 'premium' },
+            { number: '0123005808', category: 'premium' },
+            { number: '0123005870', category: 'premium' },
+            { number: '0123005615', category: 'premium' },
+            { number: '0123005610', category: 'premium' },
+            { number: '0123005786', category: 'premium' },
+            { number: '0123005914', category: 'premium' },
+            { number: '0123005864', category: 'premium' },
+            { number: '0123008298', category: 'premium' },
+            { number: '0123008279', category: 'premium' },
+            { number: '0123009455', category: 'premium' },
+            { number: '0123009096', category: 'premium' },
+            { number: '0123008504', category: 'premium' },
+            { number: '0123005829', category: 'premium' },
+            { number: '0123006037', category: 'premium' },
+            { number: '0123005451', category: 'premium' },
+            { number: '0123004202', category: 'premium' },
+            
+            // الأرقام الجديدة المضافة
+            { number: '0922225117', category: 'golden' },
+            { number: '0922228661', category: 'golden' },
+            { number: '0922228553', category: 'golden' },
+            { number: '0922227116', category: 'golden' },
+            { number: '0922223723', category: 'golden' },
+            { number: '0922220779', category: 'golden' },
+            { number: '0922225778', category: 'golden' },
+            { number: '0922220775', category: 'golden' },
+            { number: '0990508888', category: 'vip' },
+            { number: '0999916161', category: 'golden' },
+            { number: '0999981919', category: 'golden' },
+            { number: '0990000886', category: 'vip' },
+            { number: '0998000054', category: 'vip' },
+            { number: '0933030130', category: 'golden' },
+            { number: '0993000043', category: 'vip' },
+            { number: '0997000011', category: 'vip' },
+            { number: '0997000031', category: 'vip' },
+            { number: '0991556666', category: 'vip' },
+            { number: '0920195195', category: 'golden' },
+            { number: '0912700000', category: 'vip' },
+            { number: '0912800000', category: 'vip' },
+            { number: '0900008701', category: 'premium' },
+            { number: '0900004971', category: 'premium' },
+            { number: '0900009247', category: 'premium' },
+            { number: '0900004351', category: 'premium' },
+            { number: '0900004358', category: 'premium' },
+            { number: '0900002759', category: 'premium' },
+            { number: '0900008736', category: 'premium' },
+            { number: '0900008754', category: 'premium' },
+            { number: '0900003837', category: 'premium' },
+            { number: '0900003475', category: 'premium' },
+            { number: '0900003268', category: 'premium' },
+            { number: '0900008319', category: 'premium' },
+            { number: '0900008305', category: 'premium' },
+            { number: '0900003820', category: 'premium' },
+            { number: '0900009238', category: 'premium' },
+            { number: '0900005841', category: 'premium' },
+            { number: '0900008937', category: 'premium' },
+            { number: '0900007136', category: 'premium' },
+            { number: '0900007139', category: 'premium' },
+            { number: '0900007148', category: 'premium' },
+            { number: '0900004962', category: 'premium' },
+            { number: '0900004960', category: 'premium' },
+            { number: '0900007295', category: 'premium' },
+            { number: '0900007240', category: 'premium' },
+            { number: '0900007293', category: 'premium' },
+            { number: '0900009157', category: 'premium' },
+            { number: '0900009178', category: 'premium' },
+            { number: '0900009246', category: 'premium' },
+            { number: '0900009739', category: 'premium' },
+            { number: '0900004685', category: 'premium' },
+            { number: '0900004693', category: 'premium' },
+            { number: '0900004695', category: 'premium' },
+            { number: '0900005136', category: 'premium' },
+            { number: '0900005173', category: 'premium' },
+            { number: '0900005176', category: 'premium' },
+            { number: '0900002984', category: 'premium' },
+            { number: '0900005497', category: 'premium' },
+            { number: '0900001980', category: 'premium' },
+            { number: '0900001981', category: 'premium' },
+            { number: '0123688854', category: 'premium' },
+            { number: '0123833381', category: 'golden' },
+            { number: '0123822263', category: 'golden' },
+            { number: '0123836661', category: 'golden' },
+            { number: '0123852223', category: 'golden' },
+            { number: '0123675111', category: 'golden' },
+            { number: '0123851116', category: 'golden' },
+            { number: '0123666786', category: 'golden' },
+            { number: '0123666943', category: 'golden' },
+            { number: '0123666748', category: 'golden' },
+            { number: '0123666861', category: 'golden' },
+            { number: '0123666724', category: 'golden' },
+            { number: '0123866635', category: 'golden' },
+            { number: '0123876664', category: 'golden' },
+            { number: '0123888314', category: 'golden' },
+            { number: '0123888341', category: 'golden' },
+            { number: '0123715557', category: 'golden' },
+            { number: '0123622290', category: 'golden' },
+            { number: '0123622286', category: 'golden' },
+            { number: '0123748030', category: 'premium' },
+            { number: '0123798882', category: 'premium' },
+            { number: '0123822240', category: 'golden' },
+            { number: '0960000457', category: 'vip' },
+            { number: '0960000458', category: 'vip' },
+            { number: '0900001165', category: 'premium' },
+            { number: '0900002297', category: 'premium' },
+            { number: '0900002310', category: 'premium' },
+            { number: '0900002312', category: 'premium' },
+            { number: '0900002313', category: 'premium' },
+            { number: '0900002699', category: 'premium' },
+            { number: '0960000452', category: 'vip' },
+            { number: '0960000476', category: 'vip' },
+            { number: '0960000483', category: 'vip' },
+            { number: '0123000355', category: 'vip' },
+            { number: '0123000941', category: 'vip' },
+            { number: '0995555555', category: 'vip' },
+            { number: '0116844444', category: 'vip' },
+            { number: '0919644444', category: 'vip' },
+            { number: '0111111696', category: 'vip' },
+            { number: '0111111738', category: 'vip' },
+            { number: '0110939110', category: 'golden' },
+            { number: '0110921010', category: 'golden' },
+            { number: '0110931010', category: 'golden' },
+            { number: '0110941010', category: 'golden' },
+            { number: '0100037100', category: 'vip' },
+            { number: '0100089100', category: 'vip' },
+            { number: '0100162000', category: 'vip' },
+            { number: '0100143100', category: 'vip' },
+            { number: '0100162100', category: 'vip' },
+            { number: '0100168100', category: 'vip' },
+            { number: '0100217100', category: 'vip' },
+            { number: '0100246100', category: 'vip' },
+            { number: '0100256100', category: 'vip' },
+            { number: '0100262100', category: 'vip' },
+            { number: '0100268100', category: 'vip' },
+            { number: '0100282100', category: 'vip' },
+            { number: '0100283100', category: 'vip' },
+            { number: '0100285100', category: 'vip' },
+            { number: '0100328100', category: 'vip' },
+            { number: '0100132020', category: 'golden' },
+            { number: '0100135050', category: 'golden' },
+            { number: '0100175050', category: 'golden' },
+            { number: '0100138080', category: 'golden' },
+            { number: '0100189090', category: 'golden' },
+            { number: '0100222130', category: 'golden' },
+            { number: '0100222150', category: 'golden' },
+            { number: '0100222190', category: 'golden' },
+            { number: '0100222340', category: 'golden' },
+            { number: '0100222350', category: 'golden' },
+            { number: '0100222620', category: 'golden' },
+            { number: '0100222670', category: 'golden' },
+            { number: '0100222680', category: 'golden' },
+            { number: '0100222820', category: 'golden' },
+            { number: '0100222825', category: 'golden' },
+            { number: '0100250111', category: 'golden' },
+            { number: '0100250333', category: 'golden' },
+            { number: '0100270111', category: 'golden' },
+            { number: '0100222623', category: 'golden' },
+            { number: '0100170222', category: 'golden' },
+            { number: '0100170333', category: 'golden' },
+            { number: '0100170444', category: 'golden' },
+            { number: '0100170999', category: 'golden' },
+            { number: '0113777161', category: 'golden' },
+            { number: '0113777122', category: 'golden' },
+            { number: '0113777144', category: 'golden' },
+            { number: '0113777338', category: 'golden' },
+            { number: '0113777050', category: 'golden' },
+            { number: '0113777060', category: 'golden' },
+            { number: '0113777080', category: 'golden' },
+            { number: '0113777090', category: 'golden' },
+            { number: '0129327227', category: 'golden' },
+            { number: '0128128066', category: 'golden' },
+            { number: '0128128138', category: 'golden' },
+            { number: '0128128027', category: 'golden' },
+            { number: '0128128990', category: 'golden' },
+            { number: '0128903000', category: 'vip' },
+            { number: '0128455554', category: 'golden' },
+            { number: '0129129012', category: 'golden' },
+            { number: '0129129164', category: 'golden' },
+            { number: '0129129366', category: 'golden' },
+            { number: '0129005800', category: 'vip' },
+            { number: '0129600006', category: 'vip' },
+            { number: '0129468888', category: 'vip' },
+            { number: '0920000057', category: 'vip' },
+            { number: '0922220009', category: 'golden' },
+            { number: '0999999121', category: 'vip' },
+            { number: '0922499999', category: 'vip' },
+            { number: '0900000350', category: 'vip' },
+            { number: '0990000008', category: 'vip' },
+            { number: '0999999567', category: 'vip' },
+            { number: '0999999544', category: 'vip' },
+            { number: '0123080260', category: 'premium' },
+            { number: '0123844478', category: 'golden' },
+            { number: '0123835552', category: 'golden' },
+            { number: '0123884448', category: 'golden' },
+            { number: '0123555517', category: 'golden' },
+            { number: '0123756789', category: 'premium' },
+            { number: '0126573333', category: 'golden' },
+            { number: '0126537777', category: 'golden' },
+            { number: '0126903000', category: 'vip' },
+            { number: '0126808010', category: 'golden' },
+            { number: '0126200002', category: 'vip' },
+            { number: '0126005555', category: 'vip' },
+            { number: '0126900009', category: 'vip' },
+            { number: '0127301273', category: 'golden' },
+            { number: '0127090200', category: 'vip' },
+            { number: '0127000644', category: 'vip' },
+            { number: '0127000743', category: 'vip' },
+            { number: '0127000796', category: 'vip' },
+            { number: '0127844408', category: 'golden' },
+            { number: '0127777749', category: 'golden' },
+            { number: '0123793080', category: 'premium' },
+            { number: '0123796080', category: 'premium' },
+            { number: '0123789070', category: 'premium' },
+            { number: '0123786090', category: 'premium' },
+            { number: '0123726090', category: 'premium' },
+            { number: '0123791050', category: 'premium' },
+            { number: '0123764080', category: 'premium' },
+            { number: '0123797050', category: 'premium' },
+            { number: '0123778490', category: 'premium' },
+            { number: '0123711690', category: 'premium' },
+            { number: '0123850910', category: 'premium' },
+            { number: '0123890580', category: 'premium' },
+            { number: '0123190250', category: 'premium' },
+            { number: '0123890710', category: 'premium' },
+            { number: '0123810340', category: 'premium' },
+            { number: '0123754080', category: 'premium' },
+            { number: '0123751090', category: 'premium' },
+            { number: '0123708390', category: 'premium' },
+            { number: '0123603290', category: 'premium' },
+            { number: '0123604290', category: 'premium' },
+            { number: '0123607190', category: 'premium' },
+            { number: '0123625590', category: 'premium' },
+            { number: '0120777120', category: 'golden' },
+            { number: '0123450073', category: 'premium' },
+            { number: '0123450082', category: 'premium' },
+            { number: '0123450037', category: 'premium' },
+            { number: '0122608070', category: 'premium' },
+            { number: '0122700300', category: 'vip' },
+            { number: '0122333361', category: 'golden' },
+            { number: '0122300070', category: 'vip' },
+            { number: '0122106610', category: 'golden' },
+            { number: '0926688885', category: 'golden' },
+            { number: '0922399500', category: 'golden' },
+            { number: '0922220010', category: 'golden' },
+            { number: '0920000057', category: 'vip' },
+            { number: '0920042005', category: 'premium' },
+            { number: '0922222558', category: 'golden' },
+            { number: '0922222449', category: 'golden' },
+            { number: '0922222448', category: 'golden' },
+            { number: '0922222447', category: 'golden' },
+            { number: '0922222808', category: 'golden' },
+            { number: '0922222876', category: 'golden' },
+            { number: '0922220007', category: 'golden' },
+            { number: '0922220006', category: 'golden' },
+            { number: '0922603333', category: 'golden' },
+            { number: '0922513333', category: 'golden' },
+            { number: '0124444283', category: 'golden' },
+            { number: '0124444201', category: 'golden' },
+            { number: '0124444216', category: 'golden' },
+            { number: '0124124910', category: 'golden' },
+            { number: '0124124708', category: 'golden' },
+            { number: '0124124360', category: 'golden' },
+            { number: '0124124609', category: 'golden' },
+            { number: '0124124226', category: 'golden' },
+            { number: '0124124139', category: 'golden' },
+            { number: '0124124627', category: 'golden' },
+            { number: '0124124870', category: 'golden' },
+            { number: '0124444439', category: 'golden' },
+            { number: '0124901000', category: 'vip' },
+            { number: '0125999979', category: 'golden' },
+            { number: '0124088811', category: 'golden' },
+            { number: '0125011133', category: 'golden' },
+            { number: '0125255504', category: 'golden' },
+            { number: '0125255548', category: 'golden' },
+            { number: '0125255593', category: 'golden' },
+            { number: '0126800031', category: 'vip' },
+            { number: '0126800032', category: 'vip' },
+            { number: '0126800033', category: 'vip' },
+            { number: '0126802626', category: 'golden' },
+            { number: '0126267000', category: 'vip' },
+            { number: '0126900088', category: 'vip' },
+            { number: '0126115126', category: 'golden' },
+            { number: '0126126577', category: 'golden' },
+            { number: '0126812686', category: 'golden' },
+            { number: '0126666478', category: 'golden' },
+            { number: '0126679666', category: 'golden' },
+            { number: '0126693666', category: 'golden' },
+            { number: '0126799979', category: 'golden' },
+            { number: '0126838883', category: 'golden' },
+            { number: '0127279127', category: 'golden' },
+            { number: '0127127004', category: 'golden' },
+            { number: '0127252527', category: 'golden' },
+            { number: '0127330127', category: 'golden' },
+            { number: '0128135050', category: 'golden' },
+            { number: '0900000930', category: 'vip' },
+            { number: '0913000007', category: 'vip' },
+            { number: '0914600001', category: 'vip' },
+            { number: '0916700005', category: 'vip' },
+            { number: '0916533333', category: 'vip' },
+            { number: '0110700700', category: 'vip' },
+            { number: '0114500500', category: 'vip' },
+            { number: '0123123662', category: 'golden' },
+            { number: '0123005559', category: 'golden' },
+            { number: '0123007774', category: 'golden' },
+            { number: '0912205050', category: 'golden' },
+            { number: '0910517179', category: 'premium' },
+            { number: '0910917179', category: 'premium' },
+            { number: '0967891011', category: 'premium' },
+            { number: '0965300000', category: 'vip' },
+            { number: '0928888892', category: 'vip' },
+            { number: '0929755555', category: 'vip' },
+            { number: '0990000097', category: 'vip' },
+            { number: '0990000046', category: 'vip' },
+            { number: '0990000043', category: 'vip' },
+            { number: '0990000042', category: 'vip' },
+            { number: '0990000041', category: 'vip' },
+            { number: '0123000488', category: 'vip' }
+        ];
+
+        let filteredNumbers = [...premiumNumbers];
+
+        // عرض الأرقام
+        function displayNumbers(numbers) {
+            const grid = document.getElementById('numbersGrid');
+            grid.innerHTML = '';
+
+            numbers.forEach(item => {
+                const network = getNetworkFromNumber(item.number);
+                const networkClass = network === 'زين' ? 'network-zain' : 
+                                   network === 'سوداني' ? 'network-sudani' : 'network-mtn';
+                
+                const categoryClass = `category-${item.category}`;
+                const categoryText = item.category === 'vip' ? 'VIP' : 
+                                   item.category === 'golden' ? 'ذهبي' : 'مميز';
+                
+                const priceText = item.category === 'vip' ? 'سعر VIP - اتصل للاستفسار' :
+                                item.category === 'golden' ? 'سعر مميز - اتصل للاستفسار' :
+                                'سعر مناسب - اتصل للاستفسار';
+
+                const whatsappMessage = `مرحباً، أريد الاستفسار عن الرقم ${item.number} (${categoryText})`;
+                const whatsappUrl = `https://wa.me/249912398256?text=${encodeURIComponent(whatsappMessage)}`;
+
+                const card = document.createElement('div');
+                card.className = 'number-card';
+                card.innerHTML = `
+                    <div class="number-display">${item.number}</div>
+                    <div class="network-badge ${networkClass}">${network}</div>
+                    <div class="category-badge ${categoryClass}">${categoryText}</div>
+                    <div class="price-section">
+                        <div class="price-icon">👑</div>
+                        <div class="price-text">${priceText}</div>
+                    </div>
+                    <a href="${whatsappUrl}" target="_blank" class="whatsapp-btn">
+                        📱 استفسار عبر الواتساب
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+
+            // تحديث العدد الإجمالي
+            document.getElementById('totalNumbers').textContent = numbers.length;
+        }
+
+        // البحث
+        function searchNumbers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            filteredNumbers = premiumNumbers.filter(item => 
+                item.number.toLowerCase().includes(searchTerm)
+            );
+            displayNumbers(filteredNumbers);
+        }
+
+        // التصفية
+        function filterNumbers(filter) {
+            // إزالة الفئة النشطة من جميع الأزرار
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // إضافة الفئة النشطة للزر المضغوط
+            event.target.classList.add('active');
+
+            if (filter === 'all') {
+                filteredNumbers = [...premiumNumbers];
+            } else if (filter === 'vip' || filter === 'golden' || filter === 'premium') {
+                filteredNumbers = premiumNumbers.filter(item => item.category === filter);
+            } else if (filter === 'zain' || filter === 'sudani' || filter === 'mtn') {
+                filteredNumbers = premiumNumbers.filter(item => {
+                    const network = getNetworkFromNumber(item.number);
+                    return (filter === 'zain' && network === 'زين') ||
+                           (filter === 'sudani' && network === 'سوداني') ||
+                           (filter === 'mtn' && network === 'MTN');
+                });
+            }
+            displayNumbers(filteredNumbers);
+        }
+
+        // إضافة مستمع للبحث
+        document.getElementById('searchInput').addEventListener('input', searchNumbers);
+
+        // عرض جميع الأرقام عند تحميل الصفحة
+        displayNumbers(premiumNumbers);
+
+        // إضافة تأثيرات الشرارة
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // إنشاء شرارات كل ثانية
+        setInterval(createSparkle, 1000);
+    </script>
+</body>
+</html>
+
