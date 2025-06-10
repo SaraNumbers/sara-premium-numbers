@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أداة إدارة سارة للأرقام المميزة - لوحة التحكم الخاصة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .login-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .admin-panel {
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .controls-panel {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .control-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+
+        .control-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #333;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .numbers-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .add-number-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .number-card {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .number-card:hover {
+            border-color: #007bff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .number-display {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            direction: ltr;
+            text-align: center;
+        }
+
+        .price-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .number-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .network-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .network-zain { background: #4CAF50; color: white; }
+        .network-mtn { background: #FF9800; color: white; }
+        .network-sudani { background: #2196F3; color: white; }
+
+        .category-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .category-vip { background: #9C27B0; color: white; }
+        .category-gold { background: #FFD700; color: #333; }
+        .category-premium { background: #FF5722; color: white; }
+
+        .number-actions {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.8em;
+        }
+
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .export-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شاشة تسجيل الدخول -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <h2 class="login-title">🔐 لوحة التحكم الخاصة</h2>
+            <p style="margin-bottom: 20px; color: #666;">أداة إدارة سارة للأرقام المميزة</p>
+            <input type="password" id="passwordInput" class="login-input" placeholder="كلمة المرور" />
+            <button onclick="login()" class="login-btn">دخول</button>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
+                هذه أداة خاصة لإدارة الأرقام والأسعار
+            </p>
+        </div>
+    </div>
+
+    <!-- لوحة الإدارة -->
+    <div class="admin-panel" id="adminPanel">
+        <button class="logout-btn" onclick="logout()">تسجيل خروج</button>
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 أداة إدارة سارة للأرقام المميزة</h1>
+            <p>لوحة التحكم الخاصة لإدارة الأرقام والأسعار</p>
+        </div>
+
+        <!-- إحصائيات -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalNumbers">0</div>
+                <div class="stat-label">إجمالي الأرقام</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalValue">0</div>
+                <div class="stat-label">إجمالي القيمة (جنيه)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="averagePrice">0</div>
+                <div class="stat-label">متوسط السعر</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="vipCount">0</div>
+                <div class="stat-label">أرقام VIP</div>
+            </div>
+        </div>
+
+        <!-- أدوات التحكم -->
+        <div class="controls-panel">
+            <div class="controls-grid">
+                <!-- زيادة الأسعار -->
+                <div class="control-section">
+                    <div class="control-title">💰 زيادة الأسعار</div>
+                    <button class="btn btn-success" onclick="increaseLowPrices()">
+                        زيادة 50 ألف للأرقام أقل من 100 ألف
+                    </button>
+                    <button class="btn btn-warning" onclick="increaseMidPrices()">
+                        زيادة 100 ألف للأرقام أعلى من 500 ألف
+                    </button>
+                    <button class="btn btn-danger" onclick="increaseHighPrices()">
+                        زيادة 200 ألف للأرقام أعلى من 1 مليون
+                    </button>
+                    <button class="btn btn-primary" onclick="smartPriceIncrease()">
+                        زيادة ذكية (حسب الفئات)
+                    </button>
+                </div>
+
+                <!-- إدارة الأرقام -->
+                <div class="control-section">
+                    <div class="control-title">📱 إدارة الأرقام</div>
+                    <button class="btn btn-primary" onclick="sortByPrice()">
+                        ترتيب حسب السعر
+                    </button>
+                    <button class="btn btn-primary" onclick="sortByNetwork()">
+                        ترتيب حسب الشبكة
+                    </button>
+                    <button class="btn btn-danger" onclick="clearAllNumbers()">
+                        حذف جميع الأرقام
+                    </button>
+                </div>
+
+                <!-- تصدير البيانات -->
+                <div class="control-section">
+                    <div class="control-title">📊 تصدير البيانات</div>
+                    <button class="btn btn-primary" onclick="exportToWebsite()">
+                        تصدير للموقع الرئيسي
+                    </button>
+                    <button class="btn btn-success" onclick="exportToJSON()">
+                        تصدير JSON
+                    </button>
+                    <button class="btn btn-warning" onclick="exportToCSV()">
+                        تصدير CSV
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- إضافة رقم جديد -->
+        <div class="numbers-section">
+            <div class="section-title">➕ إضافة رقم جديد</div>
+            <div class="add-number-form">
+                <div class="form-row">
+                    <input type="text" id="newNumber" class="form-input" placeholder="رقم الهاتف (مثال: 0912345678)" />
+                    <input type="number" id="newPrice" class="form-input" placeholder="السعر (جنيه)" />
+                    <button class="btn btn-success" onclick="addNewNumber()">إضافة</button>
+                </div>
+            </div>
+
+            <!-- قائمة الأرقام -->
+            <div class="section-title">📋 قائمة الأرقام والأسعار</div>
+            <div class="numbers-grid" id="numbersGrid">
+                <!-- سيتم إدراج الأرقام هنا -->
+            </div>
+        </div>
+
+        <!-- تصدير الموقع -->
+        <div class="export-section">
+            <button class="export-btn" onclick="generateWebsite()">
+                🌐 إنشاء الموقع المحدث
+            </button>
+            <button class="export-btn" onclick="downloadWebsite()">
+                💾 تحميل الموقع
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // كلمة المرور (يمكن تغييرها)
+        const ADMIN_PASSWORD = "sara2024";
+
+        // بيانات الأرقام والأسعار
+        let numbersData = [
+            // أرقام VIP
+            {number: "0967006700", price: 500000, network: "zain", category: "vip"},
+            {number: "0913176060", price: 500000, network: "zain", category: "vip"},
+            {number: "0100176060", price: 500000, network: "sudani", category: "vip"},
+            {number: "0966613013", price: 450000, network: "zain", category: "vip"},
+            
+            // أرقام ذهبية
+            {number: "0965656596", price: 350000, network: "zain", category: "gold"},
+            {number: "0911704040", price: 350000, network: "zain", category: "gold"},
+            {number: "0914804949", price: 350000, network: "zain", category: "gold"},
+            {number: "0966618187", price: 150000, network: "zain", category: "gold"},
+            {number: "0903020204", price: 220000, network: "zain", category: "gold"},
+            {number: "0965888825", price: 160000, network: "zain", category: "gold"},
+            {number: "0962999981", price: 140000, network: "zain", category: "gold"},
+            {number: "0966606363", price: 200000, network: "zain", category: "gold"},
+            {number: "0911908989", price: 220000, network: "zain", category: "gold"},
+            {number: "0913901515", price: 220000, network: "zain", category: "gold"},
+            {number: "0913901919", price: 220000, network: "zain", category: "gold"},
+            {number: "0914303535", price: 210000, network: "zain", category: "gold"},
+            {number: "0914801616", price: 230000, network: "zain", category: "gold"},
+            {number: "0916203434", price: 210000, network: "zain", category: "gold"},
+            {number: "0916902323", price: 210000, network: "zain", category: "gold"},
+            {number: "0917602525", price: 210000, network: "zain", category: "gold"},
+            {number: "0917807575", price: 270000, network: "zain", category: "gold"},
+            {number: "0918307575", price: 210000, network: "zain", category: "gold"},
+            {number: "0919709595", price: 220000, network: "zain", category: "gold"},
+            {number: "0919807575", price: 220000, network: "zain", category: "gold"},
+            {number: "0910517179", price: 240000, network: "zain", category: "gold"},
+            {number: "0910917179", price: 240000, network: "zain", category: "gold"},
+            
+            // أرقام مميزة
+            {number: "0906850685", price: 130000, network: "zain", category: "premium"},
+            {number: "0900105109", price: 120000, network: "zain", category: "premium"},
+            {number: "0908225050", price: 75000, network: "zain", category: "premium"},
+            {number: "0914834747", price: 130000, network: "zain", category: "premium"},
+            {number: "0913605858", price: 200000, network: "zain", category: "premium"},
+            {number: "0910179898", price: 130000, network: "zain", category: "premium"},
+            {number: "0910392828", price: 130000, network: "zain", category: "premium"},
+            {number: "0910952424", price: 130000, network: "zain", category: "premium"},
+            {number: "0911568383", price: 130000, network: "zain", category: "premium"},
+            {number: "0911650202", price: 200000, network: "zain", category: "premium"},
+            {number: "0914182626", price: 120000, network: "zain", category: "premium"},
+            {number: "0914236262", price: 120000, network: "zain", category: "premium"},
+            {number: "0915197373", price: 140000, network: "zain", category: "premium"},
+            {number: "0916056767", price: 120000, network: "zain", category: "premium"},
+            {number: "0916053434", price: 120000, network: "zain", category: "premium"},
+            {number: "0916362020", price: 210000, network: "zain", category: "premium"},
+            {number: "0916536292", price: 120000, network: "zain", category: "premium"},
+            {number: "0916718484", price: 120000, network: "zain", category: "premium"},
+            {number: "0917141919", price: 140000, network: "zain", category: "premium"},
+            {number: "0917462525", price: 130000, network: "zain", category: "premium"},
+            {number: "0917494040", price: 200000, network: "zain", category: "premium"},
+            {number: "0918543939", price: 120000, network: "zain", category: "premium"},
+            {number: "0918974141", price: 120000, network: "zain", category: "premium"},
+            {number: "0919157878", price: 120000, network: "zain", category: "premium"},
+            {number: "0919454343", price: 130000, network: "zain", category: "premium"},
+            {number: "0919578383", price: 120000, network: "zain", category: "premium"}
+        ];
+
+        // تسجيل الدخول
+        function login() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                updateStats();
+                displayNumbers();
+            } else {
+                alert('كلمة مرور خاطئة!');
+            }
+        }
+
+        // تسجيل الخروج
+        function logout() {
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // تحديث الإحصائيات
+        function updateStats() {
+            const totalNumbers = numbersData.length;
+            const totalValue = numbersData.reduce((sum, item) => sum + item.price, 0);
+            const averagePrice = totalNumbers > 0 ? Math.round(totalValue / totalNumbers) : 0;
+            const vipCount = numbersData.filter(item => item.category === 'vip').length;
+
+            document.getElementById('totalNumbers').textContent = totalNumbers;
+            document.getElementById('totalValue').textContent = totalValue.toLocaleString();
+            document.getElementById('averagePrice').textContent = averagePrice.toLocaleString();
+            document.getElementById('vipCount').textContent = vipCount;
+        }
+
+        // عرض الأرقام
+        function displayNumbers() {
+            const grid = document.getElementById('numbersGrid');
+            grid.innerHTML = '';
+
+            numbersData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'number-card';
+                card.innerHTML = `
+                    <div class="number-display">${item.number}</div>
+                    <div class="price-display">💰 ${item.price.toLocaleString()} جنيه</div>
+                    <div class="number-info">
+                        <span class="network-badge network-${item.network}">${getNetworkName(item.network)}</span>
+                        <span class="category-badge category-${item.category}">${getCategoryName(item.category)}</span>
+                    </div>
+                    <div class="number-actions">
+                        <button class="btn btn-warning btn-small" onclick="editPrice(${index})">تعديل السعر</button>
+                        <button class="btn btn-danger btn-small" onclick="deleteNumber(${index})">حذف</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // الحصول على اسم الشبكة
+        function getNetworkName(network) {
+            switch(network) {
+                case 'zain': return 'زين';
+                case 'mtn': return 'MTN';
+                case 'sudani': return 'سوداني';
+                default: return 'غير محدد';
+            }
+        }
+
+        // الحصول على اسم الفئة
+        function getCategoryName(category) {
+            switch(category) {
+                case 'vip': return 'VIP';
+                case 'gold': return 'ذهبي';
+                case 'premium': return 'مميز';
+                default: return 'عادي';
+            }
+        }
+
+        // تحديد نوع الشبكة
+        function getNetworkType(number) {
+            if (number.startsWith('091') || number.startsWith('096') || number.startsWith('0900')) {
+                return 'zain';
+            } else if (number.startsWith('01')) {
+                return 'sudani';
+            } else if (number.startsWith('099') || number.startsWith('092') || number.startsWith('093')) {
+                return 'mtn';
+            }
+            return 'unknown';
+        }
+
+        // تحديد فئة الرقم
+        function getCategory(price) {
+            if (price >= 400000) return 'vip';
+            if (price >= 200000) return 'gold';
+            return 'premium';
+        }
+
+        // إضافة رقم جديد
+        function addNewNumber() {
+            const number = document.getElementById('newNumber').value.trim();
+            const price = parseInt(document.getElementById('newPrice').value);
+
+            if (!number || !price) {
+                alert('يرجى إدخال الرقم والسعر');
+                return;
+            }
+
+            // التحقق من عدم تكرار الرقم
+            if (numbersData.find(item => item.number === number)) {
+                alert('هذا الرقم موجود بالفعل');
+                return;
+            }
+
+            const newItem = {
+                number: number,
+                price: price,
+                network: getNetworkType(number),
+                category: getCategory(price)
+            };
+
+            numbersData.push(newItem);
+            
+            // مسح الحقول
+            document.getElementById('newNumber').value = '';
+            document.getElementById('newPrice').value = '';
+
+            updateStats();
+            displayNumbers();
+            alert('تم إضافة الرقم بنجاح');
+        }
+
+        // تعديل السعر
+        function editPrice(index) {
+            const newPrice = prompt('أدخل السعر الجديد:', numbersData[index].price);
+            if (newPrice && !isNaN(newPrice)) {
+                numbersData[index].price = parseInt(newPrice);
+                numbersData[index].category = getCategory(parseInt(newPrice));
+                updateStats();
+                displayNumbers();
+            }
+        }
+
+        // حذف رقم
+        function deleteNumber(index) {
+            if (confirm('هل أنت متأكد من حذف هذا الرقم؟')) {
+                numbersData.splice(index, 1);
+                updateStats();
+                displayNumbers();
+            }
+        }
+
+        // زيادة الأسعار للأرقام أقل من 100 ألف بـ 50 ألف
+        function increaseLowPrices() {
+            const count = numbersData.filter(item => item.price < 100000).length;
+            if (count === 0) {
+                alert('لا توجد أرقام بسعر أقل من 100 ألف');
+                return;
+            }
+
+            if (confirm(`هل تريد زيادة 50 ألف جنيه لـ ${count} رقم بسعر أقل من 100 ألف؟`)) {
+                numbersData.forEach(item => {
+                    if (item.price < 100000) {
+                        item.price += 50000;
+                        item.category = getCategory(item.price);
+                    }
+                });
+                updateStats();
+                displayNumbers();
+                alert(`تم زيادة ${count} رقم بـ 50 ألف جنيه`);
+            }
+        }
+
+        // زيادة الأسعار للأرقام أعلى من 500 ألف بـ 100 ألف
+        function increaseMidPrices() {
+            const count = numbersData.filter(item => item.price > 500000 && item.price <= 1000000).length;
+            if (count === 0) {
+                alert('لا توجد أرقام بسعر بين 500 ألف و 1 مليون');
+                return;
+            }
+
+            if (confirm(`هل تريد زيادة 100 ألف جنيه لـ ${count} رقم بسعر أعلى من 500 ألف؟`)) {
+                numbersData.forEach(item => {
+                    if (item.price > 500000 && item.price <= 1000000) {
+                        item.price += 100000;
+                        item.category = getCategory(item.price);
+                    }
+                });
+                updateStats();
+                displayNumbers();
+                alert(`تم زيادة ${count} رقم بـ 100 ألف جنيه`);
+            }
+        }
+
+        // زيادة الأسعار للأرقام أعلى من 1 مليون بـ 200 ألف
+        function increaseHighPrices() {
+            const count = numbersData.filter(item => item.price > 1000000).length;
+            if (count === 0) {
+                alert('لا توجد أرقام بسعر أعلى من 1 مليون');
+                return;
+            }
+
+            if (confirm(`هل تريد زيادة 200 ألف جنيه لـ ${count} رقم بسعر أعلى من 1 مليون؟`)) {
+                numbersData.forEach(item => {
+                    if (item.price > 1000000) {
+                        item.price += 200000;
+                        item.category = getCategory(item.price);
+                    }
+                });
+                updateStats();
+                displayNumbers();
+                alert(`تم زيادة ${count} رقم بـ 200 ألف جنيه`);
+            }
+        }
+
+        // زيادة ذكية حسب الفئات
+        function smartPriceIncrease() {
+            const lowCount = numbersData.filter(item => item.price < 100000).length;
+            const midCount = numbersData.filter(item => item.price > 500000 && item.price <= 1000000).length;
+            const highCount = numbersData.filter(item => item.price > 1000000).length;
+
+            if (confirm(`زيادة ذكية حسب الفئات:\n- ${lowCount} رقم أقل من 100 ألف (+50 ألف)\n- ${midCount} رقم بين 500 ألف - 1 مليون (+100 ألف)\n- ${highCount} رقم أعلى من 1 مليون (+200 ألف)\nهل تريد المتابعة؟`)) {
+                let totalUpdated = 0;
+                
+                numbersData.forEach(item => {
+                    if (item.price < 100000) {
+                        item.price += 50000;
+                        item.category = getCategory(item.price);
+                        totalUpdated++;
+                    } else if (item.price > 500000 && item.price <= 1000000) {
+                        item.price += 100000;
+                        item.category = getCategory(item.price);
+                        totalUpdated++;
+                    } else if (item.price > 1000000) {
+                        item.price += 200000;
+                        item.category = getCategory(item.price);
+                        totalUpdated++;
+                    }
+                });
+                
+                updateStats();
+                displayNumbers();
+                alert(`تم تطبيق الزيادة الذكية على ${totalUpdated} رقم بنجاح`);
+            }
+        }
+
+        // ترتيب حسب السعر
+        function sortByPrice() {
+            numbersData.sort((a, b) => b.price - a.price);
+            displayNumbers();
+        }
+
+        // ترتيب حسب الشبكة
+        function sortByNetwork() {
+            numbersData.sort((a, b) => a.network.localeCompare(b.network));
+            displayNumbers();
+        }
+
+        // حذف جميع الأرقام
+        function clearAllNumbers() {
+            if (confirm('هل أنت متأكد من حذف جميع الأرقام؟ هذا الإجراء لا يمكن التراجع عنه!')) {
+                if (confirm('تأكيد نهائي: سيتم حذف جميع البيانات!')) {
+                    numbersData = [];
+                    updateStats();
+                    displayNumbers();
+                    alert('تم حذف جميع الأرقام');
+                }
+            }
+        }
+
+        // تصدير للموقع الرئيسي
+        function exportToWebsite() {
+            const websiteData = numbersData.map(item => ({
+                number: item.number,
+                price: item.price,
+                network: item.network,
+                category: item.category
+            }));
+
+            const dataString = JSON.stringify(websiteData, null, 2);
+            const blob = new Blob([dataString], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sara-numbers-data.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // تصدير JSON
+        function exportToJSON() {
+            const dataString = JSON.stringify(numbersData, null, 2);
+            const blob = new Blob([dataString], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sara-admin-backup.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // تصدير CSV
+        function exportToCSV() {
+            const headers = ['الرقم', 'السعر', 'الشبكة', 'الفئة'];
+            const csvContent = [
+                headers.join(','),
+                ...numbersData.map(item => [
+                    item.number,
+                    item.price,
+                    getNetworkName(item.network),
+                    getCategoryName(item.category)
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvContent], {type: 'text/csv;charset=utf-8;'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sara-numbers.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // إنشاء الموقع المحدث
+        function generateWebsite() {
+            alert('سيتم إنشاء الموقع المحدث مع الأسعار الجديدة...');
+            // هنا يمكن إضافة كود لإنشاء الموقع المحدث
+        }
+
+        // تحميل الموقع
+        function downloadWebsite() {
+            alert('سيتم تحميل ملفات الموقع المحدث...');
+            // هنا يمكن إضافة كود لتحميل الموقع
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // التركيز على حقل كلمة المرور
+            document.getElementById('passwordInput').focus();
+            
+            // تسجيل الدخول بالضغط على Enter
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
