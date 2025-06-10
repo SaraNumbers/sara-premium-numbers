@@ -1,0 +1,152 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "سارة للأرقام المميزة",
+  "alternateName": "Sara Premium Numbers",
+  "description": "أكبر متجر للأرقام المميزة في السودان. نوفر أرقام VIP وذهبية ومميزة لجميع الشبكات (زين، MTN، سوداني) بأفضل الأسعار وأعلى جودة خدمة.",
+  "url": "https://saranumbers.github.io/sara-premium-numbers/",
+  "telephone": "+249912398256",
+  "email": "info@saranumbers.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "SD",
+    "addressLocality": "السودان",
+    "addressRegion": "الخرطوم"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "15.5007",
+    "longitude": "32.5599"
+  },
+  "openingHours": [
+    "Mo-Su 00:00-23:59"
+  ],
+  "priceRange": "$$",
+  "currenciesAccepted": "SDG",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "كتالوج الأرقام المميزة",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "أرقام VIP مميزة",
+          "description": "أرقام هاتف مميزة فئة VIP لجميع الشبكات مع أنماط رقمية فريدة",
+          "category": "VIP Numbers",
+          "brand": {
+            "@type": "Brand",
+            "name": "سارة للأرقام المميزة"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "سارة للأرقام المميزة"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "أرقام ذهبية",
+          "description": "أرقام هاتف ذهبية مميزة لجميع الشبكات مع تسلسلات جميلة",
+          "category": "Gold Numbers",
+          "brand": {
+            "@type": "Brand",
+            "name": "سارة للأرقام المميزة"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "سارة للأرقام المميزة"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Product",
+          "name": "أرقام مميزة",
+          "description": "أرقام هاتف مميزة بأسعار مناسبة لجميع الشبكات",
+          "category": "Premium Numbers",
+          "brand": {
+            "@type": "Brand",
+            "name": "سارة للأرقام المميزة"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "سارة للأرقام المميزة"
+        }
+      }
+    ]
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+249912398256",
+      "contactType": "customer service",
+      "availableLanguage": ["Arabic", "English"],
+      "areaServed": "SD"
+    }
+  ],
+  "sameAs": [
+    "https://wa.me/249912398256"
+  ],
+  "keywords": [
+    "أرقام مميزة",
+    "أرقام VIP",
+    "أرقام ذهبية",
+    "زين",
+    "MTN",
+    "سوداني",
+    "أرقام هاتف مميزة",
+    "السودان",
+    "سارة للأرقام المميزة",
+    "premium numbers sudan",
+    "vip phone numbers"
+  ],
+  "serviceArea": {
+    "@type": "Country",
+    "name": "السودان"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "150",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "أحمد محمد"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "خدمة ممتازة وأرقام مميزة جداً. تعامل راقي ومهني."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "فاطمة علي"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "أفضل مكان للحصول على أرقام مميزة. أسعار مناسبة وخدمة سريعة."
+    }
+  ]
+}
+
