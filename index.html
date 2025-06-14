@@ -1111,7 +1111,47 @@
             {number: "0912780654", price: 330000, network: "zain", category: "premium"},
             {number: "0912791692", price: 490000, network: "zain", category: "premium"},
             {number: "0912793291", price: 330000, network: "zain", category: "premium"},
-            {number: "0912704002", price: 450000, network: "zain", category: "premium"}
+            {number: "0912704002", price: 450000, network: "zain", category: "premium"},
+            
+            // أرقام زين 0900 جديدة - زيادة 50 ألف مطبقة
+            {number: "0900008701", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004971", price: 250000, network: "zain", category: "premium"},
+            {number: "0900009247", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004351", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004358", price: 250000, network: "zain", category: "premium"},
+            {number: "0900002759", price: 250000, network: "zain", category: "premium"},
+            {number: "0900008736", price: 250000, network: "zain", category: "premium"},
+            {number: "0900008754", price: 250000, network: "zain", category: "premium"},
+            {number: "0900003837", price: 370000, network: "zain", category: "premium"},
+            {number: "0900003475", price: 250000, network: "zain", category: "premium"},
+            {number: "0900003268", price: 250000, network: "zain", category: "premium"},
+            {number: "0900008319", price: 250000, network: "zain", category: "premium"},
+            {number: "0900008305", price: 250000, network: "zain", category: "premium"},
+            {number: "0900003820", price: 270000, network: "zain", category: "premium"},
+            {number: "0900009238", price: 270000, network: "zain", category: "premium"},
+            {number: "0900005841", price: 250000, network: "zain", category: "premium"},
+            {number: "0900007136", price: 250000, network: "zain", category: "premium"},
+            {number: "0900007139", price: 250000, network: "zain", category: "premium"},
+            {number: "0900007148", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004962", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004960", price: 270000, network: "zain", category: "premium"},
+            {number: "0900007295", price: 250000, network: "zain", category: "premium"},
+            {number: "0900007240", price: 270000, network: "zain", category: "premium"},
+            {number: "0900007293", price: 250000, network: "zain", category: "premium"},
+            {number: "0900009157", price: 270000, network: "zain", category: "premium"},
+            {number: "0900009178", price: 270000, network: "zain", category: "premium"},
+            {number: "0900009246", price: 270000, network: "zain", category: "premium"},
+            {number: "0900009739", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004685", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004693", price: 250000, network: "zain", category: "premium"},
+            {number: "0900004695", price: 250000, network: "zain", category: "premium"},
+            {number: "0900005136", price: 250000, network: "zain", category: "premium"},
+            {number: "0900005173", price: 250000, network: "zain", category: "premium"},
+            {number: "0900005176", price: 250000, network: "zain", category: "premium"},
+            {number: "0900002984", price: 250000, network: "zain", category: "premium"},
+            {number: "0900005497", price: 250000, network: "zain", category: "premium"},
+            {number: "0900001980", price: 350000, network: "zain", category: "premium"},
+            {number: "0900001981", price: 350000, network: "zain", category: "premium"}
         ];
 
         // جميع الأرقام الأخرى (بدون أسعار - سيتم تحديثها لاحقاً)
@@ -1359,14 +1399,15 @@
             }, duration / steps);
         }
 
-        // البحث والتصفية
+        // البحث والتصفية المحسن مع الاقتراحات
         function filterNumbers() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const networkFilter = document.getElementById('networkFilter').value;
             const categoryFilter = document.getElementById('categoryFilter').value;
             
-            const filtered = allCombinedNumbers.filter(item => {
-                const matchesSearch = item.number.includes(searchTerm);
+            let filtered = allCombinedNumbers.filter(item => {
+                const matchesSearch = item.number.includes(searchTerm) || 
+                                    item.number.replace(/[^0-9]/g, '').includes(searchTerm.replace(/[^0-9]/g, ''));
                 const matchesNetwork = !networkFilter || item.network === networkFilter;
                 const matchesCategory = !categoryFilter || item.category === categoryFilter;
                 
@@ -1374,6 +1415,112 @@
             });
             
             displayNumbers(filtered);
+            
+            // عرض الاقتراحات إذا كان البحث قصير
+            if (searchTerm && searchTerm.length >= 3 && searchTerm.length <= 6) {
+                showSuggestions(searchTerm);
+            } else {
+                hideSuggestions();
+            }
+        }
+        
+        // عرض الاقتراحات المشابهة
+        function showSuggestions(searchTerm) {
+            const suggestions = findSimilarNumbers(searchTerm);
+            let suggestionsDiv = document.getElementById('suggestions');
+            
+            if (!suggestionsDiv) {
+                suggestionsDiv = document.createElement('div');
+                suggestionsDiv.id = 'suggestions';
+                suggestionsDiv.className = 'suggestions-container';
+                suggestionsDiv.style.cssText = `
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border-radius: 15px;
+                    padding: 20px;
+                    margin: 20px 0;
+                    border: 1px solid rgba(255, 215, 0, 0.3);
+                `;
+                document.querySelector('.search-container').appendChild(suggestionsDiv);
+            }
+            
+            if (suggestions.length > 0) {
+                suggestionsDiv.innerHTML = `
+                    <div style="margin-bottom: 15px;">
+                        <h4 style="color: #FFD700; margin: 0; font-size: 18px;">🔍 أرقام مشابهة لـ "${searchTerm}":</h4>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                        ${suggestions.slice(0, 12).map(num => `
+                            <div onclick="selectSuggestion('${num.number}')" style="
+                                background: rgba(255, 255, 255, 0.1);
+                                border-radius: 10px;
+                                padding: 10px;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                border: 1px solid rgba(255, 215, 0, 0.2);
+                            " onmouseover="this.style.transform='scale(1.05)'; this.style.background='rgba(255, 215, 0, 0.2)'" 
+                               onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255, 255, 255, 0.1)'">
+                                <div style="color: #FFD700; font-weight: bold; font-size: 16px;">${formatNumber(num.number)}</div>
+                                <div style="color: #FFF; font-size: 14px;">${num.price ? formatPrice(num.price) : 'السعر قيد التحديث'}</div>
+                                <div style="color: #CCC; font-size: 12px;">${getNetworkName(num.network)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    ${suggestions.length > 12 ? `<div style="color: #CCC; text-align: center; margin-top: 10px;">وجد ${suggestions.length - 12} رقم إضافي...</div>` : ''}
+                `;
+                suggestionsDiv.style.display = 'block';
+            } else {
+                hideSuggestions();
+            }
+        }
+        
+        // البحث عن الأرقام المشابهة
+        function findSimilarNumbers(searchTerm) {
+            const cleanSearch = searchTerm.replace(/[^0-9]/g, '');
+            const suggestions = [];
+            
+            allCombinedNumbers.forEach(num => {
+                const cleanNumber = num.number.replace(/[^0-9]/g, '');
+                
+                if (cleanNumber.includes(cleanSearch)) {
+                    const score = calculateSimilarityScore(cleanSearch, cleanNumber);
+                    suggestions.push({...num, score});
+                }
+            });
+            
+            return suggestions
+                .sort((a, b) => {
+                    if (b.score !== a.score) return b.score - a.score;
+                    if (a.price && b.price) return a.price - b.price;
+                    if (a.price && !b.price) return -1;
+                    if (!a.price && b.price) return 1;
+                    return 0;
+                });
+        }
+        
+        // حساب درجة التشابه
+        function calculateSimilarityScore(search, number) {
+            let score = 0;
+            if (number.startsWith(search)) score += 100;
+            const index = number.indexOf(search);
+            if (index === 0) score += 50;
+            else if (index > 0) score += 25;
+            return score;
+        }
+        
+        // اختيار اقتراح
+        function selectSuggestion(number) {
+            document.getElementById('searchInput').value = number;
+            filterNumbers();
+            hideSuggestions();
+        }
+        
+        // إخفاء الاقتراحات
+        function hideSuggestions() {
+            const suggestionsDiv = document.getElementById('suggestions');
+            if (suggestionsDiv) {
+                suggestionsDiv.style.display = 'none';
+            }
         }
 
         // ربط أحداث البحث
@@ -1387,28 +1534,76 @@
             updateStats();
         });
 
-        // دالة تحديث الأسعار من أداة الإدارة
+        // دالة تحديث الأسعار من أداة الإدارة - محسنة
         window.updatePricesFromAdmin = function(newPrices) {
-            console.log('تحديث الأسعار من أداة الإدارة...');
+            console.log('🔄 بدء تحديث الأسعار من أداة الإدارة...');
+            console.log('📊 عدد الأسعار الجديدة:', newPrices.length);
+            
+            let updatedCount = 0;
+            let addedCount = 0;
             
             newPrices.forEach(newItem => {
                 const existingIndex = numbersWithPrices.findIndex(item => item.number === newItem.number);
                 if (existingIndex >= 0) {
                     numbersWithPrices[existingIndex] = newItem;
+                    updatedCount++;
+                    console.log('✅ تم تحديث:', newItem.number, '→', formatPrice(newItem.price));
                 } else {
                     numbersWithPrices.push(newItem);
+                    addedCount++;
+                    console.log('➕ تم إضافة:', newItem.number, '→', formatPrice(newItem.price));
                 }
             });
             
             // إعادة دمج الأرقام
             allCombinedNumbers = combineAllNumbers();
             
-            // تحديث العرض
+            // تحديث العرض والإحصائيات
             displayNumbers();
             updateStats();
             
-            console.log('تم تحديث الأسعار بنجاح!');
-            alert('تم تحديث الأسعار بنجاح!');
+            console.log('🎉 تم تحديث الأسعار بنجاح!');
+            console.log('📈 تم تحديث:', updatedCount, 'رقم');
+            console.log('📈 تم إضافة:', addedCount, 'رقم جديد');
+            
+            // رسالة تأكيد مفصلة
+            const message = `✅ تم تحديث الأسعار بنجاح!\n\n📊 الإحصائيات:\n• تم تحديث: ${updatedCount} رقم\n• تم إضافة: ${addedCount} رقم جديد\n• إجمالي الأرقام: ${allCombinedNumbers.length} رقم`;
+            alert(message);
+            
+            return {
+                success: true,
+                updated: updatedCount,
+                added: addedCount,
+                total: allCombinedNumbers.length
+            };
+        };
+        
+        // دالة مساعدة لتطبيق زيادة الأسعار
+        window.applyPriceIncrease = function(increaseAmount, condition) {
+            console.log('💰 تطبيق زيادة الأسعار:', increaseAmount, 'جنيه');
+            
+            let affectedCount = 0;
+            
+            numbersWithPrices.forEach(item => {
+                if (condition(item)) {
+                    const oldPrice = item.price;
+                    item.price += increaseAmount;
+                    affectedCount++;
+                    console.log('📈', item.number, ':', formatPrice(oldPrice), '→', formatPrice(item.price));
+                }
+            });
+            
+            // إعادة دمج الأرقام
+            allCombinedNumbers = combineAllNumbers();
+            
+            // تحديث العرض والإحصائيات
+            displayNumbers();
+            updateStats();
+            
+            console.log('✅ تم تطبيق الزيادة على', affectedCount, 'رقم');
+            alert(`✅ تم تطبيق زيادة ${increaseAmount.toLocaleString()} جنيه على ${affectedCount} رقم`);
+            
+            return affectedCount;
         };
     </script>
 </body>
